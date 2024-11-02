@@ -1,7 +1,7 @@
--- Очищення таблиці перед вставкою нових даних
+DELETE FROM TICKET;
+DELETE FROM CLIENT;
 DELETE FROM PLANET;
 
--- Вставка нових записів
 INSERT INTO PLANET (id, name) VALUES
 ('MARS', 'Mars'),
 ('VEN', 'Venus'),
@@ -9,8 +9,6 @@ INSERT INTO PLANET (id, name) VALUES
 ('JUPITER', 'Jupiter'),
 ('SATURN', 'Saturn');
 
--- Додаткові дані
-DELETE FROM CLIENT;
 INSERT INTO CLIENT (id, name) VALUES
 (1, 'John Doe'),
 (2, 'Jane Smith'),
@@ -23,7 +21,6 @@ INSERT INTO CLIENT (id, name) VALUES
 (9, 'Emma Rodriguez'),
 (10, 'William Martinez');
 
-DELETE FROM TICKET;
 INSERT INTO TICKET (id, created_at, client_id, from_planet_id, to_planet_id) VALUES
 (1, NOW(), 1, 'MARS', 'VEN'),
 (2, NOW(), 2, 'EARTH', 'JUPITER'),

@@ -10,10 +10,10 @@ public class HibernateUtil {
 
     static {
         try {
-            // Створення SessionFactory з конфігураційного файлу hibernate.cfg.xml
+
             sessionFactory = new Configuration().configure().buildSessionFactory();
         } catch (HibernateException ex) {
-            // Виведення повідомлення про помилку під час ініціалізації SessionFactory
+
             System.err.println("Initial SessionFactory creation failed." + ex);
             throw new ExceptionInInitializerError(ex);
         }
@@ -32,7 +32,7 @@ public class HibernateUtil {
      * Закриває SessionFactory, коли більше не потрібен
      */
     public static void shutdown() {
-        // Закриття кешу та пулу з'єднань
+
         if (sessionFactory != null) {
             sessionFactory.close();
         }

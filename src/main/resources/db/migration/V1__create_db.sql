@@ -3,8 +3,8 @@ CREATE TABLE client (
     name VARCHAR(200) NOT NULL
 );
 
-CREATE TABLE planet (
-    id VARCHAR(10) PRIMARY KEY,
+CREATE TABLE PLANET (
+    id VARCHAR(10) PRIMARY KEY CHECK (id ~ '^[A-Z0-9]+$'), -- Лише великі латинські букви та цифри
     name VARCHAR(500) NOT NULL
 );
 

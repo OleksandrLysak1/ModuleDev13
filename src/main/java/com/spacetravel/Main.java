@@ -1,7 +1,7 @@
 package com.spacetravel;
 
-import com.spacetravel.entities.Client;
-import com.spacetravel.entities.Planet;
+import com.spacetravel.entity.Client;
+import com.spacetravel.entity.Planet;
 import com.spacetravel.service.ClientCrudService;
 import com.spacetravel.service.PlanetCrudService;
 import com.spacetravel.util.HibernateUtil;

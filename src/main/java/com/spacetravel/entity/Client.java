@@ -1,4 +1,4 @@
-package com.spacetravel.entities;
+package com.spacetravel.entity;
 
 import javax.persistence.*;
 

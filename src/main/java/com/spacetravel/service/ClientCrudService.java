@@ -1,6 +1,6 @@
 package com.spacetravel.service;
 
-import com.spacetravel.entities.Client;
+import com.spacetravel.entity.Client;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
