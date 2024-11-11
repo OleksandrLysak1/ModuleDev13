@@ -2,45 +2,32 @@ package com.spacetravel;
 
 import com.spacetravel.entity.Client;
 import com.spacetravel.entity.Planet;
+import com.spacetravel.entity.Ticket;
 import com.spacetravel.service.ClientCrudService;
 import com.spacetravel.service.PlanetCrudService;
+import com.spacetravel.service.TicketCrudService;
 import com.spacetravel.util.HibernateUtil;
 import org.hibernate.Session;
 
 public class Main {
     public static void main(String[] args) {
-
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         try {
-
             ClientCrudService clientService = new ClientCrudService(session);
             PlanetCrudService planetService = new PlanetCrudService(session);
+            TicketCrudService ticketService = new TicketCrudService(session);
 
-            Client client1 = new Client("John Doe");
-            Client client2 = new Client("Jane Smith");
-            clientService.createClient(client1);
-            clientService.createClient(client2);
+            Client client1 = clientService.getClientById(1L);
+            Planet planetFrom = planetService.getPlanetById("EARTH");
+            Planet planetTo = planetService.getPlanetById("MARS");
 
-            Planet planet1 = new Planet("MARS", "Mars");
-            Planet planet2 = new Planet("VEN", "Venus");
-            planetService.createPlanet(planet1);
-            planetService.createPlanet(planet2);
+            Ticket ticket = new Ticket(client1, planetFrom, planetTo);
+            ticketService.createTicket(ticket);
 
-            System.out.println("All Clients: " + clientService.getAllClients());
-            System.out.println("All Planets: " + planetService.getAllPlanets());
-
-            client1.setName("John Updated");
-            clientService.updateClient(client1);
-
-            planetService.deletePlanet(planet2);
-
-            System.out.println("All Planets after deletion: " + planetService.getAllPlanets());
-
+            System.out.println("All Tickets: " + ticketService.getAllTickets());
         } finally {
-
             session.close();
-
             HibernateUtil.shutdown();
         }
     }
